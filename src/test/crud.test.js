@@ -10,4 +10,9 @@ describe('test for todo list function', () => {
     const storage = JSON.parse(localStorage.getItem('todoList'));
     expect(storage).toHaveLength(3);
   });
+  test('test for remove funtion', () => {
+    remove(0);
+    const storage = JSON.parse(localStorage.getItem('todoList'));
+    expect(storage).toHaveLength(2);
+  });
 });
