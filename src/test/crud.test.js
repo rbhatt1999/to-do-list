@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { add, remove, populateList } from '../crud.js';
+import { add, remove, populateList,deleteAllCompleted,edit} from '../crud.js';
 import ToDo from '../todoList.js';
 
 jest.mock('../todoList');
@@ -50,5 +50,12 @@ describe('test for todo list function', () => {
       const listElements = document.querySelectorAll('#todo-list li');
       expect(listElements).toHaveLength(1);
     });
+  });
+
+  test('Update complete status', () => {
+    const newItem = new ToDo('some text');
+    expect(newItem.complete).toBeFalsy();
+    newItem.update();
+    expect(newItem.complete).toBeTruthy();
   });
 });
