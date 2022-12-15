@@ -52,17 +52,21 @@ describe('test for todo list function', () => {
     });
   });
 
-  test('Update complete status', () => {
-    const newItem = new ToDo('some text');
-    expect(newItem.complete).toBeFalsy();
-    newItem.update();
-    expect(newItem.complete).toBeTruthy();
+  describe('test for update status', () => {
+    test('Update complete status', () => {
+      const newItem = new ToDo('some text');
+      expect(newItem.complete).toBeFalsy();
+      newItem.update();
+      expect(newItem.complete).toBeTruthy();
+    });
   });
 
-  test('Edit item', () => {
-    add('hello');
-    edit(0, 'edited text');
-    const storage = JSON.parse(localStorage.getItem('todoList'));
-    expect(storage[0].description).toBe('edited text');
+  describe('test for edit function', () => {
+    test('Edit item', () => {
+      add('hello');
+      edit(0, 'edited text');
+      const storage = JSON.parse(localStorage.getItem('todoList'));
+      expect(storage[0].description).toBe('edited text');
+    });
   });
 });
