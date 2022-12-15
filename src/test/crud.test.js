@@ -2,7 +2,9 @@
  * @jest-environment jsdom
  */
 
-import { add, remove, populateList,deleteAllCompleted,edit} from '../crud.js';
+import {
+  add, remove, populateList, deleteAllCompleted, edit,
+} from '../crud.js';
 import ToDo from '../todoList.js';
 
 jest.mock('../todoList');
