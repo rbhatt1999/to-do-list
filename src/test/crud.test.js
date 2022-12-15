@@ -69,4 +69,14 @@ describe('test for todo list function', () => {
       expect(storage[0].description).toBe('edited text');
     });
   });
+  describe('test for delete all completed function', () => {
+    test('Delete all completed', () => {
+      const newItem = new ToDo('some text');
+      newItem.update();
+      deleteAllCompleted(ToDo);
+      ToDo.list.forEach((item) => {
+        expect(item.complete).toBeFalsy();
+      });
+    });
+  });
 });
